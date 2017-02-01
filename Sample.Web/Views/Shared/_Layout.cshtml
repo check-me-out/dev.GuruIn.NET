@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Guru In .NET or .NET guru is a website developed to highlight some key aspects of web development using .NET framework.">
+    <meta name="keywords" content=".NET, guru, guru in .NET,">
+    <meta name="robots" content="noindex, follow">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    @{ var title = !string.IsNullOrWhiteSpace(ViewBag.Title) ? ViewBag.Title + " - Sample" : "Sample"; }
+    <title>@title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/css/site.min.css" />
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+    @{ var rootUrl = Url.Action("Index", "Home"); }
+    <script type="text/javascript">var rooturl = '@rootUrl';</script>
+
+    <div id="bootstrap-css-cdn-fallback" class="hidden"></div>
+    <noscript>Please enable Javascript (&lt;a href="http://enable-javascript.com/" title="Instructions to enable Javascript" target="_blank"&gt;help&lt;/a&gt;).</noscript>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="' + rooturl + 'Scripts/jQuery/jquery-1.10.2.min.js"><\/script>')</script>
+
+    <main>
+        <section class="page-banner-section color-primary">
+            <div class="navbar-placeholder">
+                <div class="container">
+                    <nav class="navbar navbar-inverse">
+                        @Html.Partial("_Navbar")
+                    </nav>
+                </div>
+            </div>
+
+            <div class="container-fixed">
+                <div class="page-banner gradient-background color-primary">
+                    @RenderSection("PageBanner", false)
+                </div>
+            </div>
+        </section>
+
+        <section class="body-and-footer" style="min-height: calc(100% - 320px)">
+            <section class="body-content container">
+                @RenderBody()
+            </section>
+
+            <footer class="container">
+                <div class="line-underscore"></div>
+                <p>
+                    <span>&copy; @DateTime.Now.Year - Sample</span>
+                    @{ var ver = typeof(MvcApplication).Assembly.GetName().Version;
+                        var builtOn = new DateTime(2000, 1, 1).AddDays(ver.Build);
+                        var buildNumber = (DateTime.Now.Year - 2000) + builtOn.DayOfYear.ToString("#000"); }
+                    <a href="@string.Concat(rootUrl, "ver")" style="float: right"><span>v</span>@ver.Major.@ver.Minor.@buildNumber</a>
+                </p>
+            </footer>
+        </section>
+    </main>
+
+    <toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
+
+    <script type="text/javascript">
+        if ($('#bootstrap-css-cdn-fallback').is(':visible') === true) {
+            $('<link href="' + rooturl + 'Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />').appendTo('head');
+            $('<link href="' + rooturl + 'Content/css/site.min.css" rel="stylesheet" type="text/css" />').appendTo('head');
+        }
+    </script>
+    @Styles.Render("~/Content/css/deferred-css")
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>(window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="' + rooturl + 'Scripts/bootstrap/bootstrap.min.js"><\/script>')</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js" integrity="sha256-NjvZ8gIg9zLFdxl3od64ktjChFLBCxqJnFR1f6UqtXk=" crossorigin="anonymous"></script>
+    <script> window.angular || document.write('<script src="' + rooturl + 'Scripts/angular/angular.min.js"><\/script>')</script>
+    @Scripts.Render("~/bundles/third-party-libs")
+
+    <script>
+        $(".dropdown.hover").hover(function (e) {
+            $(this).find(".dropdown-menu").first().attr("style", "display: block");
+        }, function (e) {
+            $(this).find(".dropdown-menu").first().attr("style", "display: none");
+        });
+
+        var bannerHeight = $(".page-banner-section").height() + 12;
+        $(".body-and-footer").attr("style", "min-height: calc(100% - " + bannerHeight + "px)");
+    </script>
+
+    @RenderSection("Scripts", false)
+    @RenderSection("PageSpecificJs", false)
+
+</body>
+</html>

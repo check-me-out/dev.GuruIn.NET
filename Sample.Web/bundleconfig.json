@@ -1,0 +1,128 @@
+[
+  {
+    "outputFileName": "Scripts/angular/angular.min.js",
+    "inputFiles": [
+      "Scripts/angular/angular.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/angular/angular-ui-router.min.js",
+    "inputFiles": [
+      "Scripts/angular/angular-ui-router.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/angular/angular-route.min.js",
+    "inputFiles": [
+      "Scripts/angular/angular-route.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/angular/angular-resource.min.js",
+    "inputFiles": [
+      "Scripts/angular/angular-resource.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/angular/angular-mocks.min.js",
+    "inputFiles": [
+      "Scripts/angular/angular-mocks.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/angular/angular-animate.min.js",
+    "inputFiles": [
+      "Scripts/angular/angular-animate.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jQuery/jquery.validate.unobtrusive.min.js",
+    "inputFiles": [
+      "Scripts/jQuery/jquery.validate.unobtrusive.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jQuery/jquery.validate.min.js",
+    "inputFiles": [
+      "Scripts/jQuery/jquery.validate.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jQuery/jquery-1.10.2.min.js",
+    "inputFiles": [
+      "Scripts/jQuery/jquery-1.10.2.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jQuery/jquery-1.10.2.intellisense.min.js",
+    "inputFiles": [
+      "Scripts/jQuery/jquery-1.10.2.intellisense.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/bootstrap.min.css",
+    "inputFiles": [
+      "Content/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/bootstrap/bootstrap.min.js",
+    "inputFiles": [
+      "Scripts/bootstrap/bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/angular/ui/angular-ui-select.min.js",
+    "inputFiles": [
+      "Scripts/angular/ui/angular-ui-select.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/misc/appcache.min.js",
+    "inputFiles": [
+      "Scripts/misc/appcache.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/misc/loading-bar.min.js",
+    "inputFiles": [
+      "Scripts/misc/loading-bar.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/misc/toaster.min.js",
+    "inputFiles": [
+      "Scripts/misc/toaster.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/angular/ui/angular-ui-router-tabs.min.js",
+    "inputFiles": [
+      "Scripts/angular/ui/angular-ui-router-tabs.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/toaster.min.css",
+    "inputFiles": [
+      "Content/toaster.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/ui-select.min.css",
+    "inputFiles": [
+      "Content/ui-select.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/loading-bar.min.css",
+    "inputFiles": [
+      "Content/loading-bar.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/bootstrap.min.css",
+    "inputFiles": [
+      "Content/css/bootstrap.css"
+    ]
+  }
+]

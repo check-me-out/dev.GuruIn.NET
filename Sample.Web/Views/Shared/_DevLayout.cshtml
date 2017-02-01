@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Guru In .NET or .NET guru is a website developed to highlight some key aspects of web development using .NET framework.">
+    <meta name="keywords" content=".NET, guru, guru in .NET,">
+    <meta name="robots" content="noindex, follow">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    @{ var title = !string.IsNullOrWhiteSpace(ViewBag.Title) ? ViewBag.Title + " - Sample" : "Sample"; }
+    <title>@title</title>
+
+    @Styles.Render("~/Content/css/above-the-fold-css")
+
+    <!--[if lt IE 9]>
+      <script src="/Scripts/misc/html5shiv.min.js"></script>
+      <script src="/Scripts/misc/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!--[if lte IE 8]>
+    <body class="IE8ErrorPage">
+        <link rel="stylesheet" href="~/Content/css/bootstrap-basic.min.css" />
+        <link rel="stylesheet" href="~/Content/css/site.min.css" />
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand-image" ng-href="#/">
+                    <img src="Content/images/logo.png" alt="Willmott Dixon Since 1852" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="IE8Text text-center">
+                <div class="glyphicon glyphicon-warning-sign IE8Icon"></div>
+                <div class="IE8HeaderText">
+                    Compatibility Issue!
+                </div>
+                <p style="font-size: 18px;">This website is not compatible with Internet Explorer 8 or below.</p>
+                <p>Please <a href="https://www.google.co.uk/chrome/browser/desktop/">download and install Google Chrome (https://www.google.co.uk/chrome/browser/desktop/)</a></p>
+                <p>Alternatively please contact your local Support Analyst for assistance.</p>
+            </div>
+        </div>
+    </div>
+</body>
+<![endif]-->
+<!--[if gt IE 8]> <!-- -->
+<body>
+    <noscript>Please enable Javascript (&lt;a href="http://enable-javascript.com/" title="Instructions to enable Javascript" target="_blank"&gt;help&lt;/a&gt;).</noscript>
+
+    @{ var rootUrl = Url.Action("Index", "Home"); }
+    <script type="text/javascript">var rooturl = '@rootUrl';</script>
+
+    @*<header>
+            <div class="container-fixed">
+                <div class="vendor-link-container">
+                    <a href="http://getbootstrap.com/" target="_blank" title="Bootstrap"><img src="https://genesisui.com/img/logos/bootstrap-image-broken.png" width="40px" height="30px" alt="Bootstrap" onerror="this.onerror = null; this.src = rooturl + 'Content/images/alt-bootstrap-logo.png'" /></a>
+                    <a href="http://marksheet.io/sass-scss-less.html" target="_blank" title="Sass vs SCSS vs Less"><img src="~/Content/images/all-logos-sprite.png" width="100px" height="30px" alt="Sass-Less" style="object-position: 0 0; object-fit: none" /></a>
+                    <a class="hidden-xs" href="https://jquery.com/" target="_blank" title="jQuery"><img src="~/Content/images/all-logos-sprite.png" width="50px" height="33px" alt="jQuery" style="object-position: -101px 0; object-fit: none" /></a>
+                    <a class="hidden-xs" href="http://jshint.com/" target="_blank" title="JS Hint"><img src="~/Content/images/all-logos-sprite.png" width="100px" height="32px" alt="JS Hint" style="object-position: -155px 0; object-fit: none" /></a>
+                    <a href="https://angularjs.org/" target="_blank" title="Angular JS"><img src="~/Content/images/all-logos-sprite.png" width="40px" height="30px" alt="Angular JS" style="object-position: -263px 0; object-fit: none" /></a>
+                    <a href="http://gruntjs.com/" target="_blank" title="Grunt"><img src="~/Content/images/all-logos-sprite.png" width="40px" height="30px" alt="Grunt" style="object-position: -305px 0; object-fit: none" /></a>
+                    <a class="hidden-xs hidden" href="http://knockoutjs.com/" target="_blank" title="Knockout JS"><img src="~/Content/images/all-logos-sprite.png" width="100px" height="30px" alt="Knockout JS" style="object-position: -345px 0; object-fit: none" /></a>
+                    <a class="hidden-xs" href="https://www.npmjs.com/" target="_blank" title="npm"><img src="~/Content/images/all-logos-sprite.png" width="90px" height="30px" alt="npm" style="object-position: -450px 0; object-fit: none" /></a>
+                </div>
+            </div>
+        </header>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-fixed-top-with-gap">
+            @Html.Partial("_Navbar")
+        </nav>*@
+    @*<div ng-include="'@rootUrl' + 'app/layout/navbar.html'"></div>
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-two hidden-xs">
+            @Html.Partial("_Navbar2")
+        </nav>*@
+
+    <main>
+        <section class="page-banner-section color-primary">
+            <div class="navbar-placeholder">
+                <div class="container">
+                    <nav class="navbar navbar-inverse">
+                        @Html.Partial("_Navbar")
+                    </nav>
+                </div>
+            </div>
+
+            <div class="container-fixed">
+                <div class="page-banner gradient-background color-primary">
+                    @RenderSection("PageBanner", false)
+                </div>
+            </div>
+        </section>
+
+        <section class="body-and-footer" style="min-height: calc(100% - 320px)">
+            <section class="body-content container">
+                @RenderBody()
+            </section>
+
+            <footer class="container">
+                <div class="line-underscore"></div>
+                <p>
+                    <span>&copy; @DateTime.Now.Year - Sample</span>
+                    @{ var ver = typeof(MvcApplication).Assembly.GetName().Version;
+                        var builtOn = new DateTime(2000, 1, 1).AddDays(ver.Build);
+                        var buildNumber = (DateTime.Now.Year - 2000).ToString() + builtOn.DayOfYear.ToString("#000"); }
+                    <span style="float: right"><span>v</span>@ver.Major.@ver.Minor.@buildNumber</span>
+                </p>
+            </footer>
+        </section>
+    </main>
+
+    <toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
+
+    @Styles.Render("~/Content/css/deferred-css")
+
+    @Scripts.Render("~/bundles/third-party-libs")
+
+    @Scripts.Render("~/bundles/app")
+
+    <!-- config -->
+    <script>
+        angular.module('app.settings', [])
+               .constant("webApiUrl", "who-knows")
+               .constant("rootUrl", "@rootUrl")
+        ;
+    </script>
+
+    <script type="text/javascript">
+        $(".dropdown.hover").hover(function (e) {
+            $(this).find(".dropdown-menu").first().attr("style", "display: block");
+        }, function (e) {
+            $(this).find(".dropdown-menu").first().attr("style", "display: none");
+        });
+
+        var bannerHeight = $(".page-banner-section").height() + 12;
+        $(".body-and-footer").attr("style", "min-height: calc(100% - " + bannerHeight + "px)");
+    </script>
+
+    @RenderSection("Scripts", false)
+    @RenderSection("PageSpecificJs", false)
+
+</body>
+<!-- <![endif]-->
+</html>

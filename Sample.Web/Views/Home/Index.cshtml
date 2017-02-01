@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+@section PageBanner {
+<div id="carousel-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-generic" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="carousel-body">
+                <h3>GuruIn.NET</h3>
+                <p>&nbsp;</p>
+                <p class="text-center">
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-default btn-lg">More &raquo;</a>
+                </p>
+            </div>
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-body">
+                <h3>About</h3>
+                <p>&nbsp;</p>
+                <p class="text-center">
+                    <a href="@Url.Action("About", "Home")" class="btn btn-default btn-lg">About &raquo;</a>
+                </p>
+            </div>
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-body">
+                <h3>Contact</h3>
+                <p>&nbsp;</p>
+                <p class="text-center">
+                    <a href="@Url.Action("Contact", "Home")" class="btn btn-default btn-lg">Contact &raquo;</a>
+                </p>
+            </div>
+            <div class="carousel-caption">
+            </div>
+        </div>
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+}
+
+<div class="row">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-info">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    What is GuruIn.NET?
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <p>
+                        GuruIn.NET is just an educational website which is being developed to learn & gain expertise in .NET tools & technologies, both server & client sides. I've implemented my own Blog (using Knockout JS & SQL mainly), GDrive to emulate Dropbox or Google Drive (using MVC, Ajax), Fiddle to emulate JS Fiddle (using Razor, Javascript) - just to get a feel, and learn. I've also implemented an eCommerce portal (using Angular JS) and provided a Dashboard as a CMS support.
+                    </p>
+                    <p>
+                        This webite itself uses HTML5, Bootstrap & Font Awesome (slightly tailored) amongst many other artifacts, which are all explained in Demos section. Have a look around and please feel free to leave your valuable feedback if you wish to.
+                    </p>
+                    <p>
+                        This website also has a DEV version  which is typically a Debug build. The source code of this website can be found @@ <a href="https://github.com/shree-venkat" target="_blank">https://github.com/shree-venkat</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Who Am I?
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    I am an IT contractor living in the UK with 12+ years of extensive experience in multiple technical and business disciplines, with core expertise in C# .NET technology.
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Get In Touch!
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    If you wish to contact me, please feel free to get in touch using the contact form.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section PageSpecificJs {
+    <script type="text/javascript">
+        $("#carousel-generic").on("slide.bs.carousel", function () {
+            var bannerSection = $(".page-banner-section").first();
+            var banner = $(".page-banner-section .page-banner").first();
+            if ($(bannerSection).hasClass("color-primary")) {
+                $(bannerSection).removeClass("color-primary");
+                $(banner).removeClass("color-primary");
+                $(bannerSection).addClass("color-2");
+                $(banner).addClass("color-2");
+            }
+            else if ($(bannerSection).hasClass("color-2")) {
+                $(bannerSection).removeClass("color-2");
+                $(banner).removeClass("color-2");
+                $(bannerSection).addClass("color-3");
+                $(banner).addClass("color-3");
+            }
+            else if ($(bannerSection).hasClass("color-3")) {
+                $(bannerSection).removeClass("color-3");
+                $(banner).removeClass("color-3");
+                $(bannerSection).addClass("color-primary");
+                $(banner).addClass("color-primary");
+            }
+            /*else if ($(bannerSection).hasClass("color-4")) {
+                    $(bannerSection).removeClass("color-4");
+                    $(banner).removeClass("color-4");
+                    $(bannerSection).addClass("color-primary");
+                    $(banner).addClass("color-primary");
+                }*/
+        });
+    </script>
+}
